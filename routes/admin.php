@@ -3,6 +3,7 @@
 use Admin\PhpOop\Controllers\Admin\DashboardController;
 use Admin\PhpOop\Controllers\Admin\ProductController;
 use Admin\PhpOop\Controllers\Admin\UserController;
+use Admin\PhpOop\Controllers\Admin\CategoryController;
 
 $router->before('GET|POST', '/admin/*.*', function () {
 
@@ -43,4 +44,13 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/delete', UserController::class . '@delete'); // Xóa
     });
 
+
+    $router->mount('/categories', function () use ($router) {
+        $router->get('/', CategoryController::class . '@index');  // Danh sách
+        $router->get('/create', CategoryController::class . '@create'); // Show form thêm mới
+        $router->post('/store', CategoryController::class . '@store');  // Lưu mới vào DB
+        $router->get('/{id}/edit', CategoryController::class . '@edit');   // Show form sửa
+        $router->post('/{id}/update', CategoryController::class . '@update'); // Lưu sửa vào DB
+        $router->get('/{id}/delete', CategoryController::class . '@delete'); // Xóa
+    });
 });
