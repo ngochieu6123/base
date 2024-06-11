@@ -10,7 +10,13 @@ Dashboard
             <div class="col-12">
                 <div class="page_title_box d-flex align-items-center justify-content-between">
                     <div class="page_title_left">
-                        <h1 class="f_s_40 f_w_700 text_blue">Thống kê sản phẩm</h1>
+                        <h1 class="f_s_40 f_w_700 text_blue">Thống kê sản phẩm</h1><br>
+                        <h3>Số lượng sản phẩm : {{ $products }}</h3><br>
+
+                        <h3>Số lượng danh mục : {{ $categories }}</h3><br>
+
+                        <h3>Số lượng người dùng : {{ $users }}</h3><br>
+
                     </div>
                 </div>
             </div>

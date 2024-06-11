@@ -7,8 +7,7 @@ use Admin\PhpOop\Commons\Helper;
 use Admin\PhpOop\Models\Category;
 use Admin\PhpOop\Models\Product;
 use Admin\PhpOop\Models\Overview;
-use Admin\PhpOop\Commons\Model;
-class HomeController extends Controller
+class ListController extends Controller
 {
     private Product $product;
     private Category $category;
@@ -20,14 +19,16 @@ class HomeController extends Controller
         $this->category = new Category();
         $this->overview = new Overview();
     }
-    public function index() {
+    public function list() {
+
         $products = $this->product->all();
         $counts = $this->product->count();
-        // Helper::debug($counts);
+        // Helper::debug($products);
 
-        $this->renderViewClient('home', [
+        $this->renderViewClient('list', [
             'products' => $products,
             'counts' => $counts
         ]);
+
     }
 }
